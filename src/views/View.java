@@ -39,11 +39,19 @@ public class View {
         return sc.nextInt();
     }
 
- /*   public int selectSortingMethod() {
-
+    public void showMessage(String message) {
+        System.out.println("LOG"+message);
     }
 
-     public int selectSearchCriterion() {
+    public int selectSortingMethod() {
+        System.out.println("Ingrese la condicion a ordenar: ");
+        System.out.println("1. Por nombre");
+        System.out.println("2. Poe edad");
+        System.out.println("Ingrese una Opcion: ");
+        return sc.nextInt();
+    }
+
+ /*    public int selectSearchCriterion() {
 
     }
 

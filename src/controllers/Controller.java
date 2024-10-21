@@ -28,6 +28,9 @@ public class Controller {
                 case 2:
                     addPersons();
                     break;
+                case 3:
+                    sortPersons();
+                    break;
                 case 100:
                     System.out.println("Adios");
                     break;
@@ -47,6 +50,11 @@ public class Controller {
     }
 
     public void addPersons() {
+        if (personas == null) {
+            view.showMessage("No existe, ingrese las personas por primera vez ");
+            inputPersons();
+        }
+
         int numeroPersonas = view.imputInt("Ingrese el numero de personas a adicionar: ");
 
         Person[] personasTotales = new Person[personas.length + numeroPersonas];
@@ -63,7 +71,15 @@ public class Controller {
     }
 
     public void sortPersons() {
+        int sortingOption = view.selectSortingMethod();
 
+        if(sortingOption == 1){
+            sortingMethods.sortByNameWithBubble(personas);
+        }else if(sortingOption == 2){
+            sortingMethods.sortByAgeWithInsertion(personas);
+        }else{
+            view.showMessage("Opcion Invalida");
+        }
     }
 
     public void searchPersons() {
