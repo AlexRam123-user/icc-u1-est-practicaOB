@@ -31,6 +31,9 @@ public class Controller {
                 case 3:
                     sortPersons();
                     break;
+                case 4:
+                    searchPersons();
+                    break;
                 case 100:
                     System.out.println("Adios");
                     break;
@@ -73,16 +76,41 @@ public class Controller {
     public void sortPersons() {
         int sortingOption = view.selectSortingMethod();
 
-        if(sortingOption == 1){
+        if (sortingOption == 1) {
             sortingMethods.sortByNameWithBubble(personas);
-        }else if(sortingOption == 2){
+        } else if (sortingOption == 2) {
             sortingMethods.sortByAgeWithInsertion(personas);
-        }else{
+        } else {
             view.showMessage("Opcion Invalida");
         }
     }
 
     public void searchPersons() {
-
+        int searchCriterion = view.selectSortingMethod();
+        if (searchCriterion == 1) { // Buscar por nombre
+            String name = view.inputName();
+            if (searchMethods.isSortedByName(personas)) {
+                Person result = searchMethods.binarySearchByName(personas, name);
+                if (result != null) {
+                    view.showMessage("Persona encontrada: " + result);
+                } else {
+                    view.showMessage("Persona no encontrada");
+                }
+            } else {
+                view.showMessage("Lista no está ordenada por nombre");
+            }
+        } else if (searchCriterion == 2) { // Buscar por edad
+            int age = view.inputAge();
+            if (searchMethods.isSortedByAge(personas)) {
+                Person result = searchMethods.binarySearchByAge(personas, age);
+                if (result != null) {
+                    view.showMessage("Persona encontrada: " + result);
+                } else {
+                    view.showMessage("Persona no encontrada");
+                }
+            } else {
+                view.showMessage("Lista no está ordenada por edad");
+            }
+        }
     }
 }

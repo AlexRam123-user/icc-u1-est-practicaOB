@@ -40,7 +40,7 @@ public class View {
     }
 
     public void showMessage(String message) {
-        System.out.println("LOG"+message);
+        System.out.println("LOG "+message);
     }
 
     public int selectSortingMethod() {
@@ -51,17 +51,26 @@ public class View {
         return sc.nextInt();
     }
 
- /*    public int selectSearchCriterion() {
-
+     public int selectSearchCriterion() {
+        System.out.println("Seleccione el criterio de búsqueda: ");
+        System.out.println("1. Buscar por nombre");
+        System.out.println("2. Buscar por edad");
+        System.out.println("Ingrese una opción: ");
+        return sc.nextInt();
     }
 
-    public void displayPersons(Person[]){
-
+    public void displayPersons(Person[] personas){
+        System.out.println("Lista de Personas:");
+        for (Person persona : personas) {
+            System.out.println(persona);
+        }
     }
 
-    public void displaySearchResult(Person){
-
+    public void displaySearchResult(Person person){
+        if (person != null) {
+            System.out.println("Persona encontrada: " + person);
+        } else {
+            System.out.println("Persona no encontrada");
+        }
     }
-*/
-    
 }

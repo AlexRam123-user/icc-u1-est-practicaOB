@@ -9,5 +9,7 @@ public class App {
         SearchMethods searchMethods = new SearchMethods();
 
         Controller controller = new Controller(vista, sortingMethods, searchMethods);
+        vista.showMenu();
+        controller.addPersons();
     }
 }
